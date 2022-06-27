@@ -179,28 +179,31 @@ export default function App() {
 
         <Text></Text>
 
-        <Text style={styles.header}>Heart Attack Prevention Patient Screening App</Text>
+        <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
         <Text style={{flex:.1}}></Text>
 
         <View style={styles.section}>
-          <Text style={styles.mainText}>Heart Disease, Stents, or Bypass:</Text>
-          <Text style={styles.text}>Yes</Text>
+          <Text style={styles.mainText}>Enfermedad Cardíaca Conocida, Colocación de Stents o Cirugía de Derivación?</Text>
+        </View>
+
+        <View style={styles.section}>
+          <Text style={styles.text}>Sí</Text>
           <Checkbox style={styles.checkbox} value={data.previous && data.previous !== null} onValueChange={checkPreviousYes} />
           <Text style={styles.text}>No</Text>
           <Checkbox style={styles.checkbox} value={!data.previous && data.previous !== null} onValueChange={checkPreviousNo} />
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.mainText}>Sex:</Text>
-          <Text style={styles.text}>Male</Text>
+          <Text style={styles.mainText}>Género:</Text>
+          <Text style={styles.text}>Hombre</Text>
           <Checkbox style={styles.checkbox} value={(data.sex === "male")} onValueChange={checkSexMale} />
-          <Text style={styles.text}>Female</Text>
+          <Text style={styles.text}>Mujer</Text>
           <Checkbox style={styles.checkbox} value={(data.sex === "female")} onValueChange={checkSexFemale} />
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.mainText}>Age:</Text>
+          <Text style={styles.mainText}>Años:</Text>
           <TextInput
           style={styles.input}
           keyboardType="numeric"
@@ -209,16 +212,16 @@ export default function App() {
         </View>
 
         <View style={styles.section}>
-          <Text style={styles.mainText}>Family History:</Text>
-          <Text style={styles.text}>Yes</Text>
+          <Text style={styles.mainText}>Historia Familiar de Infarto:</Text>
+          <Text style={styles.text}>Sí</Text>
           <Checkbox style={styles.checkbox} value={data.history && data.history !== null} onValueChange={checkHistoryYes} />
           <Text style={styles.text}>No</Text>
           <Checkbox style={styles.checkbox} value={!data.history && data.history !== null} onValueChange={checkHistoryNo} />
         </View>
 
-        <Text style={styles.mainText}>Risk Factors:</Text>
+        <Text style={styles.mainText}>Factores de Riesgo:</Text>
         <View style={styles.section}>
-          <Text style={styles.text}>{'\t\t'}Hypertension</Text>
+          <Text style={styles.text}>{'\t\t'}Hipertensión</Text>
           <Checkbox style={styles.checkbox} value={data.hypertension} onValueChange={checkHypertension} />
         </View>
         <View style={styles.section}>
@@ -230,7 +233,7 @@ export default function App() {
           <Checkbox style={styles.checkbox} value={data.lowHDL} onValueChange={checkLowHDL} />
         </View>
         <View style={styles.section}>
-          <Text style={styles.text}>{'\t\t'}Tobacco Use</Text>
+          <Text style={styles.text}>{'\t\t'}Tabaquismo</Text>
           <Checkbox style={styles.checkbox} value={data.tobacco} onValueChange={checkTobacco} />
         </View>
         <View style={styles.section}>
@@ -238,18 +241,18 @@ export default function App() {
           <Checkbox style={styles.checkbox} value={data.diabetes} onValueChange={checkDiabetes} />
         </View>
         <View style={styles.section}>
-          <Text style={styles.text}>{'\t\t'}Obesity</Text>
+          <Text style={styles.text}>{'\t\t'}Obesidad</Text>
           <Checkbox style={styles.checkbox} value={data.obesity} onValueChange={checkObesity} />
         </View>
         <View style={styles.section}>
-          <Text style={styles.text}>{'\t\t'}None</Text>
+          <Text style={styles.text}>{'\t\t'}Ninguno</Text>
           <Checkbox style={styles.checkbox} value={data.none} onValueChange={checkNone} />
         </View>
 
       <Text></Text>
 
       <View style={styles.button}>
-        <Button title="   Submit   " onPress={submit}></Button>
+        <Button title="   Enviar   " onPress={submit}></Button>
       </View>
 
       </ImageBackground>
@@ -266,10 +269,10 @@ export default function App() {
 
         <Text></Text>
 
-        <Text style={styles.header}>Heart Attack Prevention Patient Screening App</Text>
+        <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
         <View style={styles.finalSection}>
-          <Text style={styles.finalText}>It is recommended that this patient receives a CT Calcium Test{"\n"}The nearest location offering this is city hospital</Text>
+          <Text style={styles.finalText}>Puntuación de Calcio por TAC{"\n"}La ubicación más cercana en la Ciudad de México</Text>
         </View>
 
         <View style={styles.button}>
@@ -288,10 +291,10 @@ let negativeResults =
 
       <Text></Text>
 
-      <Text style={styles.header}>Heart Attack Prevention Patient Screening App</Text>
+      <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
       <View style={styles.finalSection}>
-        <Text style={styles.finalText}>This patient does not require a CT Calcium Test</Text>
+        <Text style={styles.finalText}>Reducción de Riesgos Sin CAC</Text>
       </View>
 
       <View style={styles.button}>
