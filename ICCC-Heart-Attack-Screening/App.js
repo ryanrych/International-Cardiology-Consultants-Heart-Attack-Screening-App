@@ -1,6 +1,6 @@
 import Checkbox from 'expo-checkbox';
-import React, { useState } from 'react';
-import { StyleSheet, Text, View, TextInput, ImageBackground, Button } from 'react-native';
+import React, { useState, useCallback } from 'react';
+import { StyleSheet, Text, View, TextInput, ImageBackground, Button, Linking } from 'react-native';
 
 
 export default function App() {
@@ -177,7 +177,6 @@ export default function App() {
 
         <ImageBackground source={require('./background.png')} resizeMode="contain" style={styles.image}>
 
-        <Text></Text>
 
         <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
@@ -252,7 +251,7 @@ export default function App() {
       <Text></Text>
 
       <View style={styles.button}>
-        <Button title="   Enviar   " onPress={submit}></Button>
+        <Button title="Enviar" onPress={submit}></Button>
       </View>
 
       </ImageBackground>
@@ -260,6 +259,23 @@ export default function App() {
       </View>
     );
   }
+
+  const OpenURLButton = ({ url, children }) => {
+    const handlePress = useCallback(async () => {
+      // Checking if the link is supported for links with custom URL scheme.
+      const supported = await Linking.canOpenURL(url);
+  
+      if (supported) {
+        // Opening the link with some app, if the URL scheme is "http" the web link should be opened
+        // by some browser in the mobile
+        await Linking.openURL(url);
+      } else {
+        Alert.alert(`Don't know how to open this URL: ${url}`);
+      }
+    }, [url]);
+  
+    return <Button title={children} onPress={handlePress} />;
+  };
   
   let positiveResults = 
   
@@ -267,7 +283,6 @@ export default function App() {
 
       <ImageBackground source={require('./background.png')} resizeMode="contain" style={styles.image}>
 
-        <Text></Text>
 
         <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
@@ -276,7 +291,8 @@ export default function App() {
         </View>
 
         <View style={styles.button}>
-          <Button title="   Restart   " onPress={restart}/>
+          <OpenURLButton url="https://www.nationalhearthealth.org/mexico-national-heart-health" children="Más Información" />
+          <Button title="Reiniciar" onPress={restart}/>
         </View>
 
       </ImageBackground>
@@ -289,7 +305,6 @@ let negativeResults =
 
     <ImageBackground source={require('./background.png')} resizeMode="contain" style={styles.image}>
 
-      <Text></Text>
 
       <Text style={styles.header}>Prevención de Infarto de Miocardio Detección de Pacientes</Text>
 
@@ -298,8 +313,8 @@ let negativeResults =
       </View>
 
       <View style={styles.button}>
-          <Button title="   Restart   "  onPress={restart}/>
-        </View>
+          <Button title="Reiniciar"  onPress={restart}/>
+      </View>
 
     </ImageBackground>
 
@@ -316,23 +331,27 @@ const styles = StyleSheet.create({
     fontSize: 32,
     fontWeight: "bold",
     textAlign: "center",
-    color: "white"
+    color: "white",
+    paddingTop: 28,
   },
   mainText: {
     fontSize: 17,
     fontWeight: "bold",
     paddingLeft: 8,
-    color:"white"
+    paddingRight: 8,
+    color:"white",
   },
   text: {
     fontSize: 18,
     paddingLeft: 8,
+    paddingRight: 8,
     color:"white"
   },
   finalText: {
     fontSize: 26,
     fontWeight: "bold",
     paddingLeft: 8,
+    paddingRight: 8,
     color:"white",
     textAlign: "center",
     justifyContent: "center",
@@ -371,6 +390,7 @@ const styles = StyleSheet.create({
   },
   button: {
     alignItems: "center",
+    justifyContent: "center",
   },
   image: {
     flex: 1,
