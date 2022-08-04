@@ -1,6 +1,6 @@
 {
   "name": "iccc-heart-attack-screening",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "node_modules/expo/AppEntry.js",
   "scripts": {
     "start": "expo start",
@@ -10,16 +10,18 @@
     "eject": "expo eject"
   },
   "dependencies": {
-    "expo": "~45.0.0",
-    "expo-checkbox": "~2.1.0",
-    "expo-status-bar": "~1.3.0",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
-    "react-native": "0.68.2",
-    "react-native-web": "0.17.7"
+    "expo": "^46.0.0",
+    "expo-checkbox": "~2.2.0",
+    "expo-cli": "^6.0.1",
+    "expo-status-bar": "~1.4.0",
+    "expo-updates": "~0.14.3",
+    "react": "18.0.0",
+    "react-dom": "18.0.0",
+    "react-native": "0.69.3",
+    "react-native-web": "~0.18.7"
   },
   "devDependencies": {
-    "@babel/core": "^7.12.9"
+    "@babel/core": "^7.18.6"
   },
   "private": true
 }
